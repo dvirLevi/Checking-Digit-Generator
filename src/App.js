@@ -31,7 +31,6 @@ const App = () => {
           justifyContent: "center",
           flexDirection: "row",
           p: 1,
-          // bgcolor: "#cfe8fc",
           textAlign: "center",
         }}
       >

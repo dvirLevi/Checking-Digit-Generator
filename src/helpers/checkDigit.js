@@ -10,7 +10,7 @@ const checkDigit = ({ digitsArr }) => {
   try {
     validateDigitsArr(digitsArr);
     const multiplicationDigits = digitsArr.map((el, index) => {
-      let num = el * (index % 2 ? 2 : 1);
+      const num = el * (index % 2 ? 2 : 1);
       if (num >= 10) {
         return num + 1 - 10;
       }
@@ -21,7 +21,7 @@ const checkDigit = ({ digitsArr }) => {
       return a + c;
     });
 
-    let remainderNumber = sum % 10;
+    const remainderNumber = sum % 10;
 
     if (remainderNumber === 0) return remainderNumber;
     return 10 - remainderNumber;

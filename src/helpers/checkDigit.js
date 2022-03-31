@@ -17,8 +17,8 @@ const checkDigit = ({ digitsArr }) => {
       return num;
     });
 
-    const sum = multiplicationDigits.reduce((a, c) => {
-      return a + c;
+    const sum = multiplicationDigits.reduce((total, num) => {
+      return total + num;
     });
 
     const remainderNumber = sum % 10;

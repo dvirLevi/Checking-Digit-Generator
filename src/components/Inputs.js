@@ -40,16 +40,18 @@ const Inputs = ({ validateNumbers }) => {
 
   const navigateInSquare = (e, { diraction, whenToNext }) => {
     const { value, name } = e.target;
-    const fieldIndex = name.split("-")[1];
+
     if (isNaN(value)) {
       e.target.value = "";
       return;
     }
+
     if (value.length >= whenToNext) {
+      const fieldIndex = name.split("-")[1];
       const nextSibling = document.querySelector(`input[name=inp-${parseInt(fieldIndex, 10) + diraction}]`);
       if (nextSibling !== null) nextSibling.focus();
+      setValue(name, e.target.value);
     }
-    setValue(name, e.target.value);
   };
 
   const nextSquare = (e) => {
@@ -57,9 +59,7 @@ const Inputs = ({ validateNumbers }) => {
   };
 
   const deleteText = (e) => {
-    if (e.keyCode === 8) {
-      if (!e.target.value) navigateInSquare(e, { diraction: -1, whenToNext: 0 });
-    }
+    if (e.keyCode === 8 && !e.target.value) navigateInSquare(e, { diraction: -1, whenToNext: 0 });
   };
 
   const listInputs = numbersInputs.map((item) => (
@@ -84,8 +84,7 @@ const Inputs = ({ validateNumbers }) => {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-      }}
-    >
+      }}>
       {listInputs}
     </Box>
   );
